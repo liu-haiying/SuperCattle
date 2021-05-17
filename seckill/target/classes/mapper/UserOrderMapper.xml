@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.black.cattle.mapper.UserOrderMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.black.cattle.entity.UserOrder">
+        <id column="id" property="id" />
+        <result column="order_no" property="orderNo" />
+        <result column="order_time" property="orderTime" />
+        <result column="order_by" property="orderBy" />
+        <result column="order_price" property="orderPrice" />
+        <result column="order_flag" property="orderFlag" />
+    </resultMap>
+
+    <insert id="saveOrder" parameterType="com.black.cattle.entity.UserOrder">
+        insert into user_order(order_no,order_time,order_by,order_price,order_flag)
+        values (#{order.orderNo},#{order.orderTime},#{order.orderBy},#{order.orderPrice},#{order.orderFlag})
+    </insert>
+
+</mapper>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.black.cattle.mapper.GoodsStockMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.black.cattle.entity.GoodsStock">
+        <id column="id" property="id" />
+        <result column="goods_no" property="goodsNo" />
+        <result column="stock_num" property="stockNum" />
+    </resultMap>
+
+    <update id="updateById" parameterType="String">
+        update goods_stock set stock_num = stock_num - 1 where goods_no = #{goodsNo}
+    </update>
+
+    <select id="selectStockNum" parameterType="String" resultType="Integer">
+        select stock_num from goods_stock where goods_no = #{goodsNo}
+    </select>
+
+</mapper>
